@@ -41,14 +41,15 @@ import { ThemeService } from '../../services/theme.service';
         <div class="text-center relative mb-12">
           <h1 class="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none relative group">
             <span class="block transition-all duration-700 group-hover:tracking-normal group-hover:opacity-20">OMAIMA</span>
-            <span class="block -mt-2 md:-mt-6 bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-700">ASSIF</span>
-            <span class="absolute inset-0 flex items-center justify-center text-2xl md:text-4xl font-thin opacity-0 group-hover:opacity-100 transition-all duration-700 tracking-[0.5em] md:tracking-[1em] pointer-events-none">
-              ENGINEER
+            <span class="block -mt-2 md:-mt-6 bg-gradient-to-r from-purple-400 via-pink-600 to-purple-800 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-700">ASSIF</span>
+            <span class="absolute inset-0 flex flex-col items-center justify-center text-xl md:text-3xl font-thin opacity-0 group-hover:opacity-100 transition-all duration-700 tracking-[0.2em] md:tracking-[0.5em] pointer-events-none">
+              <span>SOFTWARE</span>
+              <span>ENGINEER</span>
             </span>
           </h1>
 
           <p class="mt-8 text-xs md:text-sm lg:text-base font-light tracking-[0.3em] uppercase opacity-70 max-w-2xl mx-auto leading-relaxed">
-            Bridging the gap between <span class="font-medium text-purple-400">conceptual design</span> and <span class="font-medium text-blue-400">robust engineering</span>.
+            Bridging the gap between <span class="font-medium text-pink-400">conceptual design</span> and <span class="font-medium text-blue-400">robust engineering</span>.
           </p>
         </div>
 

@@ -8,15 +8,15 @@ import { ThemeService } from '../../services/theme.service';
   imports: [CommonModule],
   template: `
     <nav
-      class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b"
+      class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b px-6 md:px-12"
       [ngClass]="(isDarkMode$ | async)
         ? 'bg-black/20 border-white/10 backdrop-blur-xl'
         : 'bg-white/20 border-black/10 backdrop-blur-xl'"
     >
       <div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between relative z-20">
 
-        <a href="#home" (click)="scrollTo('home', $event)" class="text-2xl font-bold no-underline group flex items-center">
-          <span [ngClass]="(isDarkMode$ | async) ? 'text-white' : 'text-black'">OA</span>
+        <a href="#home" (click)="scrollTo('home', $event)"
+          class="text-2xl font-bold no-underline group flex items-center"> <span [ngClass]="(isDarkMode$ | async) ? 'text-white' : 'text-black'">OA</span>
           <span class="transition-transform group-hover:scale-150" [ngClass]="(isDarkMode$ | async) ? 'text-pink-500' : 'text-purple-600'">.</span>
         </a>
 
