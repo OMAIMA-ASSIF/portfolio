@@ -24,7 +24,7 @@ import { ThemeService } from '../../services/theme.service';
           </p>
         </div>
 
-        <div class="h-20 md:h-42"></div>
+        <div class="h-10 md:h-20"></div>
 
         <div class="w-full max-w-4xl relative">
 

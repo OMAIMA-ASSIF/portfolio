@@ -71,7 +71,7 @@ import { ThemeService } from '../../services/theme.service';
             }
           </div>
         </div>
-        <div class="h-8"></div>
+        <div class="h-4 md:h-8 "></div>
 
         <div class="flex justify-center">
           <button (click)="toggleExpand()"
@@ -89,6 +89,7 @@ import { ThemeService } from '../../services/theme.service';
             <div class="absolute -inset-1 bg-purple-500/10 blur opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </button>
         </div>
+        <div class="h-50 md:h-65 "></div>
       </div>
     </section>
   `,
