@@ -108,13 +108,19 @@ import emailjs from '@emailjs/browser';
 
           </ng-container>
         </div>
-
+        <div class='h-10'></div>
         <div class="mt-20 flex justify-center gap-12">
-          <a *ngFor="let link of socialLinks" href="#" class="group relative">
+          <a *ngFor="let link of socialLinks"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative">
             <div class="p-2 rounded-full transition-transform group-hover:-translate-y-2 duration-500">
               <span [innerHTML]="link.icon" class="w-7 h-7 opacity-20 group-hover:opacity-100 group-hover:text-purple-500 transition-all duration-500"></span>
             </div>
-            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[8px] font-mono uppercase tracking-[0.5em] opacity-0 group-hover:opacity-40 transition-opacity whitespace-nowrap">{{ link.label }}</span>
+            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[8px] font-mono uppercase tracking-[0.5em] opacity-0 group-hover:opacity-40 transition-opacity whitespace-nowrap">
+              {{ link.label }}
+            </span>
           </a>
         </div>
 
@@ -139,10 +145,27 @@ export class ContactComponent {
   statusMessage = 'Available for new projects';
   formData = { name: '', projectType: '', email: '' };
 
-  socialLinks = [
-    { label: 'LinkedIn', icon: this.getIcon(`<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>`) },
-    { label: 'GitHub', icon: this.getIcon(`<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>`) }
-  ];
+  socialLinks: any[] = [];
+
+  constructor() {
+    this.socialLinks = [
+      {
+        label: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/omaima-assif-093549295/',
+        icon: this.getIcon(`<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>`)
+      },
+      {
+        label: 'GitHub',
+        url: 'https://github.com/OMAIMA-ASSIF',
+        icon: this.getIcon(`<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>`)
+      },
+      {
+        label: 'Gmail',
+        url: 'mailto:omaima.assif-etu@etu.univh2c.ma',
+        icon: this.getIcon(`<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>`)
+      }
+    ];
+  }
 
   nextStep() { if (this.currentStep < 3) this.currentStep++; }
   isValidEmail() { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email); }
@@ -166,12 +189,10 @@ export class ContactComponent {
     }
   }
 
-  
-
   private getIcon(path: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(`
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${path}</svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;">${path}</svg>
     `);
   }
 }
