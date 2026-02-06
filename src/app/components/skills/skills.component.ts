@@ -70,37 +70,37 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
                   @if (activeCategory() === category.id) {
                     <div class="fixed inset-0 lg:absolute lg:-inset-12 z-[100] p-4 lg:p-0 animate-hyper-reveal">
-                      <div class="w-full h-full backdrop-blur-3xl rounded-[4rem] border p-10 flex flex-col shadow-2xl transition-all duration-500"
+                      <div class="w-full h-full backdrop-blur-3xl rounded-[2.5rem] md:rounded-[4rem] border p-6 md:p-10 flex flex-col shadow-2xl transition-all duration-500"
                         [ngClass]="(isDarkMode$ | async)
                           ? 'bg-purple-950/90 border-purple-500/30 shadow-[0_0_100px_rgba(168,85,247,0.3)]'
                           : 'bg-purple-50/95 border-purple-200 shadow-[0_40px_100px_rgba(168,85,247,0.15)]'">
 
-                        <div class="flex justify-between items-start mb-10">
+                        <div class="flex justify-between items-start mb-6 md:mb-10">
                           <div class="space-y-2">
                             <p class="font-mono text-[10px] uppercase tracking-[0.3em]"
                               [ngClass]="(isDarkMode$ | async) ? 'text-purple-300' : 'text-purple-600'">
                               System.Category_{{ category.id }}
                             </p>
-                            <h4 class="text-4xl font-black italic tracking-tighter"
+                            <h4 class="text-3xl md:text-4xl font-black italic tracking-tighter"
                               [ngClass]="(isDarkMode$ | async) ? 'text-white' : 'text-purple-900'">
                               {{ category.title }}
                             </h4>
                           </div>
 
                           <button (click)="$event.stopPropagation(); toggleCategory(null)"
-                                  class="w-14 h-14 flex items-center justify-center rounded-2xl border transition-all duration-500 hover:rotate-90 group/close"
+                                  class="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-2xl border transition-all duration-500 hover:rotate-90 group/close"
                                   [ngClass]="(isDarkMode$ | async)
                                     ? 'border-purple-500/30 text-white hover:bg-purple-500'
                                     : 'border-purple-200 text-purple-600 hover:bg-purple-600 hover:text-white'">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                           </button>
                         </div>
 
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 overflow-y-auto custom-scrollbar pr-4">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-6 overflow-y-auto custom-scrollbar pr-2 md:pr-4 max-h-[70vh] md:max-h-none">
                           @for (tech of category.skills; track tech; let i = $index) {
-                            <div class="group/item relative overflow-hidden flex flex-col items-center p-8 rounded-[2.5rem] border transition-all duration-500 animate-cascade"
+                            <div class="group/item relative overflow-hidden flex flex-col items-center justify-center p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] border transition-all duration-500 animate-cascade min-h-[110px] md:min-h-[160px]"
                                 [style.animation-delay]="i * 50 + 'ms'"
                                 [ngClass]="(isDarkMode$ | async)
                                   ? 'bg-purple-900/20 border-purple-500/20 hover:border-purple-400'
@@ -109,10 +109,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
                               <img [src]="'assets/techs/' + tech.toLowerCase() + '.png'"
                                   [alt]="tech"
                                   (error)="handleImgError($event)"
-                                  class="w-14 h-14 object-contain mb-5 transition-transform duration-500 group-hover/item:scale-110"
+                                  class="w-10 h-10 md:w-14 md:h-14 object-contain mb-2 md:mb-5 transition-transform duration-500 group-hover/item:scale-110"
                                   [ngClass]="(isDarkMode$ | async) ? 'filter drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]' : ''">
 
-                              <span class="text-xs font-mono font-bold uppercase tracking-widest text-center transition-colors"
+                              <span class="block text-[9px] md:text-xs font-mono font-bold uppercase tracking-widest text-center transition-colors"
                                 [ngClass]="(isDarkMode$ | async) ? 'text-purple-100 group-hover/item:text-white' : 'text-purple-800'">
                                 {{ tech }}
                               </span>
