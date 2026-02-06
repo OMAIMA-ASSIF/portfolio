@@ -16,7 +16,9 @@ import { ThemeService } from '../../services/theme.service';
       <div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between relative z-20">
 
         <a href="#home" (click)="scrollTo('home', $event)"
-          class="text-2xl font-bold no-underline group flex items-center"> <span [ngClass]="(isDarkMode$ | async) ? 'text-white' : 'text-black'">OA</span>
+          class="text-2xl font-bold no-underline group flex items-center">
+          <span class="w-[60px]"></span>
+          <span [ngClass]="(isDarkMode$ | async) ? 'text-white' : 'text-black'">OA</span>
           <span class="transition-transform group-hover:scale-150" [ngClass]="(isDarkMode$ | async) ? 'text-pink-500' : 'text-purple-600'">.</span>
         </a>
 
@@ -98,6 +100,8 @@ export class NavbarComponent {
     { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
     { label: 'Projects', id: 'projects' },
+    { label: 'Certifs', id: 'certifications' },
+    { label: 'Experience', id: 'experience' },
     { label: 'Contact', id: 'contact' }
   ];
 
