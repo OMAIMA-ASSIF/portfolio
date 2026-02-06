@@ -38,15 +38,15 @@ import { ThemeService } from '../../services/theme.service';
         <div class="flex justify-center mb-16">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl w-full">
             @for (project of projects; track project.title; let i = $index) {
-              <div class="relative group opacity-0 animate-reveal"
+              <div class="relative group opacity-0 animate-reveal h-full"
                    [style.animation-delay]="(i * 80) + 'ms'"
                    (mousemove)="handleParallax($event, card)"
                    (mouseleave)="resetParallax(card)">
 
-                <div #card class="relative w-full transition-all duration-500 ease-out transform-gpu cursor-pointer"
+                <div #card class="relative w-full h-full transition-all duration-500 ease-out transform-gpu cursor-pointer"
                      (click)="openLightbox(i, currentImageIndex[i])">
 
-                  <div class="relative rounded-[2rem] border backdrop-blur-md overflow-hidden transition-all duration-500"
+                  <div class="relative h-full flex flex-col rounded-2xl border backdrop-blur-md overflow-hidden transition-all duration-500"
                     [ngClass]="(isDarkMode$ | async)
                       ? 'bg-slate-950/40 border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]'
                       : 'bg-white/40 border-purple-200/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] hover:border-purple-500 hover:bg-white/80 hover:shadow-[0_20px_40px_rgba(168,85,247,0.1)]'">
@@ -59,7 +59,7 @@ import { ThemeService } from '../../services/theme.service';
                         </div>
                       }
 
-                      <img [src]="'assets/projects/' + project.folderName + '/' + project.images[currentImageIndex[i]]"
+                      <img [src]="'/assets/projects/' + project.folderName + '/' + project.images[currentImageIndex[i]]"
                            [alt]="project.title"
                            (load)="imageLoaded[i][currentImageIndex[i]] = true"
                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
@@ -98,7 +98,7 @@ import { ThemeService } from '../../services/theme.service';
                     </div>
 
                     <!-- Content -->
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                       <h3 class="text-lg font-black tracking-tight uppercase italic leading-tight mb-2"
                           [ngClass]="(isDarkMode$ | async) ? 'text-white' : 'text-slate-800'">
                         {{ project.title }}
@@ -110,21 +110,13 @@ import { ThemeService } from '../../services/theme.service';
                       </p>
 
                       <!-- Tech badges -->
-                      <div class="flex flex-wrap gap-1.5">
-                        @for (tech of project.technologies.slice(0, 3); track tech) {
+                      <div class="flex flex-wrap gap-1.5 mt-auto">
+                        @for (tech of project.technologies; track tech) {
                           <span class="px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider rounded-md transition-all"
                                 [ngClass]="(isDarkMode$ | async)
                                   ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
                                   : 'bg-purple-100 text-purple-700 border border-purple-200'">
                             {{ tech }}
-                          </span>
-                        }
-                        @if (project.technologies.length > 3) {
-                          <span class="px-2 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider rounded-md"
-                                [ngClass]="(isDarkMode$ | async)
-                                  ? 'bg-white/10 text-gray-400'
-                                  : 'bg-slate-100 text-slate-500'">
-                            +{{ project.technologies.length - 3 }}
                           </span>
                         }
                       </div>
@@ -167,10 +159,10 @@ import { ThemeService } from '../../services/theme.service';
                 </button>
               }
 
-              <div class="max-w-full max-h-[75vh] rounded-2xl overflow-hidden border backdrop-blur-md"
+              <div class="h-[60vh] md:h-[70vh] w-full flex items-center justify-center rounded-2xl overflow-hidden border backdrop-blur-md"
                    [ngClass]="(isDarkMode$ | async) ? 'border-white/10 bg-slate-950/40' : 'border-purple-200/60 bg-white/40'">
-                <img [src]="'assets/projects/' + projects[selectedProjectIndex].folderName + '/' + projects[selectedProjectIndex].images[selectedLightboxImageIndex]"
-                     class="max-w-full max-h-[75vh] object-contain"
+                <img [src]="'/assets/projects/' + projects[selectedProjectIndex].folderName + '/' + projects[selectedProjectIndex].images[selectedLightboxImageIndex]"
+                     class="max-w-full max-h-full object-contain shadow-2xl"
                      [alt]="projects[selectedProjectIndex].title">
               </div>
 
@@ -193,6 +185,11 @@ import { ThemeService } from '../../services/theme.service';
                 {{ projects[selectedProjectIndex].title }}
               </h3>
 
+              <p class="mb-6 text-sm leading-relaxed max-w-2xl mx-auto opacity-80 text-center"
+                 [ngClass]="(isDarkMode$ | async) ? 'text-gray-300' : 'text-slate-600'">
+                {{ projects[selectedProjectIndex].description }}
+              </p>
+
               @if (projects[selectedProjectIndex].images.length > 1) {
                 <div class="flex justify-center gap-2 overflow-x-auto pb-4">
                   @for (img of projects[selectedProjectIndex].images; track img; let i = $index) {
@@ -201,7 +198,7 @@ import { ThemeService } from '../../services/theme.service';
                             [ngClass]="selectedLightboxImageIndex === i
                               ? ((isDarkMode$ | async) ? 'ring-2 ring-purple-400 scale-105 border-purple-400' : 'ring-2 ring-purple-600 scale-105 border-purple-600')
                               : ((isDarkMode$ | async) ? 'border-white/10 opacity-50 hover:opacity-100' : 'border-purple-200 opacity-60 hover:opacity-100')">
-                      <img [src]="'assets/projects/' + projects[selectedProjectIndex].folderName + '/' + img"
+                      <img [src]="'/assets/projects/' + projects[selectedProjectIndex].folderName + '/' + img"
                            class="w-full h-full object-cover">
                     </button>
                   }
@@ -356,9 +353,9 @@ export class ProjectsComponent {
     {
       title: 'Enerassist',
       folderName: 'Enerassist',
-      images: ['1.PNG', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'],
+      images: ['1.PNG', '2.PNG', '3.PNG', '4.PNG', '5.PNG', '6.PNG', '7.PNG'],
       description: 'Industrial troubleshooting chatbot using RAG architecture. Provides technical solutions from documentation and automatically generates Jira tickets for unresolved failures.',
-      technologies: ['Qdrant', 'RAG', 'Langchain', 'FastAPI', 'Mistral AI']
+      technologies: ['Qdrant', 'RAG', 'Langchain', 'FastAPI', 'Mistral AI', 'React', 'Prompt engineering', 'MCPJira', 'Mongodb']
     }
   ];
 }
