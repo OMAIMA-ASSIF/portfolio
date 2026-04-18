@@ -87,6 +87,13 @@ export class ExperienceComponent {
 
   experience = [
     {
+      title: 'Founding Engineer',
+      company: 'KritW9rit Startup',
+      period: 'FEB 2026 — PRES',
+      description: 'Built the entire platform from scratch, including stack selection and system architecture. Leading the development of core features, security protocols, and deployment strategies while ensuring long-term maintenance and scalability.',
+      tags: ['Product Development', 'Architecture', 'Scaling']
+    },
+    {
       title: 'Social Media Manager',
       company: 'GDG Mohammedia',
       period: 'OCT 2025 — PRES',
@@ -105,7 +112,7 @@ export class ExperienceComponent {
       company: 'SUEZ',
       period: 'JUL — AUG 2025',
       description: 'Building high-performance tools for environmental monitoring. Data-driven web engineering.',
-      tags: ['ERP 365','Node.js','Expressjs', 'React', 'PostgreSQL', 'Tailwind', 'Postman']
+      tags: ['ERP 365', 'Node.js', 'Expressjs', 'React', 'PostgreSQL', 'Tailwind', 'Postman']
     }
   ];
 }

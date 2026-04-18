@@ -118,6 +118,9 @@ export class CertificationsComponent {
   isExpanded = signal(false);
 
   certifications = [
+    { title: 'MCP Advanced topics', issuer: 'Anthropic', filename: 'MCP.PNG' },
+    { title: 'System administration 1', issuer: 'RedHat', filename: 'System-admin1.PNG' },
+    { title: 'System administration 2', issuer: 'RedHat', filename: 'System-admin2.PNG' },
     { title: 'Associate AI Engineer', issuer: 'DataCamp', filename: 'aieng.jpg' },
     { title: 'Associate AI Foundations', issuer: 'Oracle', filename: 'aifoundations.jpg' },
     { title: 'Generative AI Professional', issuer: 'Oracle', filename: 'generativeai.jpg' },
@@ -146,9 +149,9 @@ export class CertificationsComponent {
 
     // Optional: Smooth scroll back to section top when closing
     if (this.isExpanded()) {
-        setTimeout(() => {
-            document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+      setTimeout(() => {
+        document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     }
   }
 
