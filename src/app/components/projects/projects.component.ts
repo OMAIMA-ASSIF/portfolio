@@ -41,7 +41,7 @@ import { ThemeService } from '../../services/theme.service';
                  (mouseenter)="hoveredIndex = i"
                  (mouseleave)="hoveredIndex = null"
                  (click)="openLightbox(i)">
-              
+
               <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-12">
                 <div class="flex items-center gap-16">
                   <span class="font-mono text-xs opacity-20 group-hover:opacity-100 group-hover:text-blue-500 transition-all duration-300">0{{ i + 1 }}</span>
@@ -82,10 +82,10 @@ import { ThemeService } from '../../services/theme.service';
         <div class="fixed inset-0 z-[100] flex items-center justify-center p-6 animate-fadeIn"
              (click)="closeLightbox()">
           <div class="absolute inset-0 bg-slate-950/98 backdrop-blur-2xl"></div>
-          
+
           <div class="relative w-full max-w-[90vw] h-[90vh] bg-slate-900 border border-white/10 rounded-xl overflow-hidden flex flex-col md:flex-row"
                (click)="$event.stopPropagation()">
-            
+
             <!-- Left Side: Full Gallery -->
             <div class="w-full md:w-2/3 h-full bg-black overflow-y-auto p-12 custom-scrollbar">
               <div class="flex flex-col gap-8">
@@ -137,7 +137,7 @@ import { ThemeService } from '../../services/theme.service';
     .custom-scrollbar::-webkit-scrollbar { width: 4px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.2); border-radius: 2px; }
-    
+
     @keyframes gradient-x {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -189,13 +189,12 @@ export class ProjectsComponent {
       title: 'KritW9rit',
       folderName: 'KritW9rit',
       images: [
-        '1.png', '2.PNG', '3.PNG', '4.PNG', '5.PNG', '6.PNG', '7.PNG', '8.PNG', '10.PNG', '11.PNG',
+        '1.PNG', '3.PNG', '4.PNG', '5.PNG',
         'admin/1.PNG', 'admin/2.PNG', 'admin/3.PNG', 'admin/4.PNG', 'admin/5.PNG', 'admin/6.PNG', 'admin/7.PNG', 'admin/8.PNG',
         'owner/1.PNG', 'owner/2.PNG', 'owner/3.PNG', 'owner/4.PNG', 'owner/5.PNG',
-        'student/1.PNG', 'student/3.PNG', 'student/5.PNG', 'student/6.PNG', 'student/7.PNG', 'student/8.PNG', 'student/9.PNG', 'student/10.PNG',
-        'student/12.PNG', 'student/13.PNG', 'student/14.PNG', 'student/15.PNG', 'student/16.PNG', 'student/17.PNG', 'student/18.PNG', 'student/19.PNG',
-        'student/20.PNG', 'student/21.PNG', 'student/22.PNG', 'student/23.PNG', 'student/24.PNG', 'student/25.PNG', 'student/26.PNG', 'student/27.PNG',
-        'student/28.PNG', 'student/30.PNG', 'student/31.PNG', 'student/32.PNG', 'student/33.PNG', 'student/34.PNG', 'student/35.PNG', 'student/36.PNG'
+        'student/3.PNG', 'student/10.PNG', 'student/13.PNG', 'student/14.PNG', 'student/17.PNG', 'student/18.PNG', 'student/19.PNG', 'student/20.PNG',
+        'student/21.1.png', 'student/23.PNG', 'student/24.PNG', 'student/25.PNG', 'student/26.PNG', 'student/27.PNG', 'student/28.PNG',
+        'student/30.PNG', 'student/31.PNG', 'student/32.PNG', 'student/33.PNG', 'student/34.PNG', 'student/35.PNG', 'student/36.PNG'
       ],
       description: 'End-to-end development of a comprehensive Moroccan student platform, built from scratch. Architected the entire system, selected the technical stack, and implemented core features including instant messaging, security, and scaling infrastructure.',
       technologies: ['Node.js', 'Express', 'Angular', 'MongoDB', 'JWT', 'Socket.io']
