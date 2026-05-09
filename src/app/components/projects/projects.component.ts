@@ -246,7 +246,7 @@ export class ProjectsComponent {
       folderName: 'SmartGlow',
       images: ['1.PNG', '2.PNG', '3.PNG', '4.PNG', '5.PNG', '6.PNG', '7.PNG'],
       description: 'an intelligent skincare ecosystem that uses generative AI to provide hyper-personalized beauty routines. By combining selfie-based skin diagnostics with real-time environmental data like pollution and UV levels, the platform dynamically adjusts treatments to protect the skin against local climate stressors. It goes beyond simple analysis by checking product ingredient compatibility and delivering humanized coaching through voice technology and WhatsApp integration.',
-      technologies: ['Arduino', 'ESP8266', 'MQTT', 'Python']
+      technologies: ['Nextjs', 'ElevenLabs', 'Gemini', 'Prompt Engineering','MongoDB', 'Supabase']
     }
   ];
 }
