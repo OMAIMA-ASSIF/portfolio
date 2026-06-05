@@ -186,6 +186,13 @@ export class ProjectsComponent {
 
   projects = [
     {
+      title: 'FinPulse',
+      folderName: 'FinPulse',
+      images: ['11.png','15.png','1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png','12.png', '13.png', '14.png',  '16.png'],
+      description: '**FinPulse** is an AI-powered investment platform that analyzes financial reports, news, and market data to evaluate company performance and credibility. It helps users generate investment insights, validate strategies, and detect risks through its Negative Consistency Index (NCI). Real-time alerts, sentiment tracking, and watchlists keep investors informed of important market changes.',
+      technologies: ['SpringBoot', 'Python', 'Redis', 'Docker', 'PostgreSQL/Pgvector', 'Angularjs', 'CSS', 'Mistral','RAG', 'DeepLearning']
+    },
+    {
       title: 'KritW9rit',
       folderName: 'KritW9rit',
       images: ['5.PNG', '3.PNG', '4.PNG', '1.PNG',
