@@ -87,6 +87,13 @@ export class ExperienceComponent {
 
   experience = [
     {
+      title: 'Full-Stack AI Engineer',
+      company: 'EMSI- LPRI',
+      period: 'JUN 2026 — JUL 2026',
+      description: 'a web-based dynamic thermal simulation platform.',
+      tags: ['Docker', 'Jenkins', 'Machine Learning', 'Python','Node.js', 'Express', 'MongoDB']
+    },
+    {
       title: 'Founding Engineer',
       company: 'KritW9rit Startup',
       period: 'FEB 2026 — PRES',
